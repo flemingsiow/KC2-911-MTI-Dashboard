@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+	<title>KC2 911 Cookhouse — Admin Control</title>
+
+	<link href="css/app.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div class="wrapper">
+		<nav id="sidebar" class="sidebar js-sidebar">
+			<div class="sidebar-content js-simplebar">
+				<a class="sidebar-brand" href="index.html">
+          <span class="align-middle">KC2 MTI Cookhouse</span>
+        </a>
+
+				<ul class="sidebar-nav">
+					<li class="sidebar-header">
+						Pages
+					</li>
+
+					<li class="sidebar-item active">
+						<a class="sidebar-link" href="index.html">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Home</span>
+            </a>
+					</li>
+			</div>
+		</nav>
+
+		<div class="main">
+			<nav class="navbar navbar-expand navbar-light navbar-bg">
+				<a class="sidebar-toggle js-sidebar-toggle">
+          <i class="hamburger align-self-center"></i>
+        </a>
+
+				<div class="navbar-collapse collapse">
+					<ul class="navbar-nav navbar-align">
+						<li class="nav-item dropdown">
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<main class="content">
+				<div class="container-fluid p-0">
+
+					<h1 class="h1 mb-3"><strong>Home</strong></h1>
+
+					<div class="row">
+						<div class="col-xl-6 col-xxl-5 d-flex">
+							<div class="w-100">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card position-relative">
+											<div class="card-header d-flex justify-content-between align-items-center bg-dark">
+												<h4 class="card-title mb-0">Wake Lock</h4>
+											</div>
+											<div class="position-absolute top-0 end-0 m-3 mt-4"> <!-- Adjust margin as needed -->
+												<div class="stat text-primary bg-dark">	
+													<i class="align-middle" data-feather="unlock" style="color: rgb(155, 155, 155) !important;"></i>
+												</div>
+											</div>
+
+											<div class="card-body">
+												<!-- Card body content -->
+												<p class="card-text"><strong>Screen Wake Lock API</strong> prevents the computer from locking the screen when an application needs to keep running. However, you must <strong>remain on the current tab</strong> to keep it activated.</p>
+
+												<div class="form-check form-switch form-switch-lg mb-3" style="font-size: 1.5rem;">
+													<input id="toggle-switch" class="form-check-input" type="checkbox" value="" checked> <!-- Added checked attribute for initial activation -->
+													<label id="switch-label" class="form-check-label me-2" for="toggle-switch">Activated</label> <!-- Added me-2 for margin -->
+												</div>
+
+												<div class="d-inline-flex align-items-center mb-3"> <!-- Added d-inline-flex and align-items-center -->
+													<p class="card-text mb-0 me-2">To Prevent Auto Deactivation When Changing Tabs:</p> <!-- Added me-2 for margin -->
+													<label class="form-check mb-0"> <!-- Removed ml-3 for margin -->
+														<input id="checkbox-wakelock" class="form-check-input form-check-input-lg bg-info" type="checkbox" value="" checked>
+														<span class="form-check-label">
+														</span>
+													</label>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-6 col-xxl-7">
+							<div class="card flex-fill w-100">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="card position-relative">
+											<div class="card-header d-flex justify-content-between align-items-center bg-dark">
+												<h4 class="card-title mb-0">Page Refresher</h4>
+											</div>
+											<div class="position-absolute top-0 end-0 m-3 mt-4"> <!-- Adjust margin as needed -->
+												<div class="stat text-primary bg-dark">	
+													<i class="align-middle" data-feather="refresh-ccw" style="color: rgb(155, 155, 155) !important;"></i>
+												</div>
+											</div>
+
+											<div class="card-body">
+												<p class="card-text">Page Refresher <strong>auto refreshes</strong> web pages unlimited times at a <strong>specified interval</strong> in seconds. This helps extend sessions that auto kicks you out after long periods of inactivity on the web page. To start, enter the <strong>URL</strong> and <strong>Timer Interval</strong> and click the <strong>Refresh</strong> button.</p>
+
+												<div class="row mb-3">
+													<div class="col">
+														<div class="dropdown" style="width: auto;">
+															<input type="text" id="url" class="form-control text-muted border-info" placeholder="Enter your URL">
+															<div class="dropdown-menu" id="urlDropdown">
+																<div class="dropdown-item text-muted" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">https://www.ns.sg/nsp/myportal/site/mindef-isp/dashboard</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-auto" style="width: 20%;">
+														<div class="dropdown" style="width: auto;">
+															<input type="number" id="timer" class="form-control text-muted border-info" placeholder="Timer" pattern="[0-9]*">
+															<div class="dropdown-menu" id="timerDropdown" style="width: 100%; max-height: 200px; overflow-y: auto;">
+																<div class="dropdown-item text-muted">15</div>
+															</div>
+														</div>
+													</div>
+													<div class="col-auto">
+														<button id="btn-refresh" class="btn btn-info">Refresh</button>
+													</div>
+												</div>
+											</div>
+										
+
+											<table class="table table-hover my-0" id="dataTable">
+												<colgroup>
+													<col style="width: 55%;">
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+													<col style="width: 15%;">
+												</colgroup>
+												<thead>
+													<tr>
+														<th>URL</th>
+														<th class="d-none d-xl-table-cell">Timer</th>
+														<th>Status</th>
+														<th>Control</th>
+													</tr>
+												</thead>
+												<tbody>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main>
+
+			<footer class="footer">
+				<div class="container-fluid">
+					<div class="row text-muted">
+						<div class="col-6 text-start">
+							<p class="mb-0">
+								<strong>KC2 911 MTI Cookhouse</strong></a>          &copy;
+							</p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+
+	<script>
+		// Toggle button and label
+		const wakeButton = document.querySelector("#toggle-switch");
+		const wakeLabel = document.querySelector("#switch-label");
+
+		// Checkbox for wakelock
+		const reaquireCheck = document.querySelector('#checkbox-wakelock');
+
+		// Change button and status if wakelock becomes aquired or is released
+		const changeUI = (status = "acquired") => {
+			const acquired = status === "acquired" ? true : false;
+			wakeButton.checked = acquired ? true : false;
+			wakeLabel.textContent = `${acquired ? "Activated" : "Deactivated"}`;
+			wakeLabel.className = `form-check-label me-2 ${acquired ? "text-info" : "text-danger"}`;
+			wakeButton.className = `form-check-input ${acquired ? "bg-info border-info" : ""}`;
+		}
+
+		// Check support and call if supported
+		let isSupported = false;
+
+		if ("wakeLock" in navigator) {
+			isSupported = true;
+		} else {
+			wakeButton.disabled = true;
+		}
+
+		if (isSupported) {
+			// Create a reference for the wake lock
+			let wakeLock = null;
+
+			// Create an async function to request a wake lock
+			const requestWakeLock = async () => {
+				try {
+					wakeLock = await navigator.wakeLock.request("screen");
+
+					// change up our interface to reflect wake lock active
+					changeUI();
+
+					// listen for our release event
+					wakeLock.onrelease = function(ev) {
+						console.log(ev);
+					}
+					wakeLock.addEventListener("release", () => {
+						// if wake lock is released alter the button accordingly
+						changeUI("released");
+					});
+
+				} catch (err) {
+					// if wake lock request fails - usually system related, such as battery
+					wakeButton.checked = false;
+					wakeLabel.textContent = "Deactivated";
+				}
+			} 
+			requestWakeLock();
+
+
+			// if we click the button
+			wakeButton.addEventListener("click", () => {
+				// if wakelock is off request it
+				if (wakeButton.checked) {
+					requestWakeLock()
+				} else { // if it's on release it
+					wakeLock.release()
+						.then(() => {
+							wakeLock = null;
+						})
+				}
+			})
+
+			const handleVisibilityChange = () => {
+				if (wakeLock !== null && document.visibilityState === "visible") {
+					requestWakeLock();
+				}
+			}
+
+			document.addEventListener("visibilitychange", handleVisibilityChange);
+				reaquireCheck.addEventListener("change", () => {
+					if (reaquireCheck.checked) {
+						reaquireCheck.className = 'form-check-input form-check-input-lg bg-info'
+						document.addEventListener("visibilitychange", handleVisibilityChange);
+					} else {
+						reaquireCheck.className = 'form-check-input form-check-input-lg'
+						document.removeEventListener("visibilitychange", handleVisibilityChange);
+					}
+				});
+			} // isSupported	
+	</script>
+
+	<script>
+		const refreshButton = document.getElementById("btn-refresh");
+	
+		// Function to handle row deletion
+		const deleteRow = (event) => {
+			const row = event.target.closest('tr'); // Find the closest row to the clicked button
+
+			const url = row.querySelector('.url');
+			const urlData = JSON.parse(url.getAttribute('data-value'));
+
+			window[urlData.windowId].close(); // Close the window
+    		delete window[urlData.windowId]; // Remove the reference from the global object
+
+			row.remove(); // Remove the row from the table
+		};
+
+		// Function to add a new row to table	
+		const addRow = (url, timer, winData) => {
+			const tableBody = document.querySelector('#dataTable tbody');
+			const domainName = extractDomain(url);
+			const newRow = document.createElement('tr');
+			
+			newRow.innerHTML = `
+				<td class="url" style="max-width: 0; overflow: hidden; text-overflow: ellipsis;">${domainName}</td>
+				<td class="interval d-none d-xl-table-cell">${timer/1000}</td>
+				<td><span class="badge bg-success">Active</span></td>
+				<td>
+					<button data-status="on" class="btn btn-success play-btn badge"><i class="fas fa-play fa-sm"></i></button>
+					<button class="btn btn-danger delete-btn badge"><i class="fas fa-times"></i></button>
+				</td>
+			`;
+			newRow.querySelector('.url').setAttribute('data-value', winData)
+			tableBody.appendChild(newRow);
+
+			// Attach event listener to the buttons of the newly added row
+			const deleteButton = newRow.querySelector('.delete-btn');
+			deleteButton.addEventListener('click', deleteRow);
+			const playButton = newRow.querySelector('.play-btn');
+			playButton.addEventListener('click', () => controlRow(playButton, newRow));
+		};
+
+		// Function to control a row
+		const controlRow = (btn, row) => {
+			const badge = row.querySelector('.badge');
+			const timer = row.querySelector('.interval');
+			const url = row.querySelector('.url');
+			const urlData = JSON.parse(url.getAttribute('data-value'));
+
+			if (btn.dataset.status === "off") {
+				btn.dataset.status = "on";
+				btn.className = 'btn btn-success play-btn badge';
+				btn.innerHTML = `<i class="fas fa-play"></i>`;
+				badge.textContent = "Active";
+				badge.className = 'badge bg-success';
+				const refresher = pageRefresher(urlData.windowId, parseInt(timer.textContent)*1000, validateUrl(url.textContent));
+				url.setAttribute('data-value', JSON.stringify({ 'url': urlData.url, 'windowId': urlData.windowId, 'refresher': refresher }));
+
+			} else {
+				btn.dataset.status = "off";
+				btn.className = 'btn btn-warning play-btn badge';
+				btn.innerHTML = `<i class="fas fa-pause"></i>`;
+				badge.textContent = "Paused";
+				badge.className = 'badge bg-warning';
+				clearInterval(urlData.refresher);
+			}
+		};
+
+		const pageRefresher = (windowId, timer, url) => {
+			return setInterval(function() {
+				window[windowId].location.href = url + "?" + Date.now();
+			}, timer);
+		};
+
+		const retrieveUrlAndRefresh = () => {
+			try {
+				const urlInput = document.getElementById("url").value;
+				document.getElementById("url").value = null;
+
+				const timer = document.getElementById("timer").value * 1000;
+				document.getElementById("timer").value = null;
+
+				const url = validateUrl(urlInput);
+
+				const openedWindow = window.open(url);
+	
+				// Generate a unique window ID (UUID)
+				const windowId = generateUUID();
+
+				// Store the window reference in a global object using the unique window ID
+				window[windowId] = openedWindow;
+
+				const refresher = pageRefresher(windowId, timer, url);
+
+				const winData = {
+					url: url,
+					windowId: windowId,
+					refresher: refresher
+				};
+				addRow(url, timer, JSON.stringify(winData));
+				
+			} catch (err) {
+				console.log(err);
+			}
+		};
+
+		const validateUrl = (url) => {
+			// Check if the URL contains a protocol, if not, add 'https://' by default
+			if (!/^https?:\/\//i.test(url)) {
+				url = 'https://' + url;
+			}
+			return url;
+		};
+
+		// Function to extract domain name from URL
+		const extractDomain = (url) => {
+			let domain = url.replace(/^(https?:\/\/)?(www\.)?/, ''); // Remove protocol and www
+			return domain;
+		};
+
+		// Function to generate a UUID (Universally Unique Identifier)
+		const generateUUID = () => {
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+			var r = Math.random() * 16 | 0,
+				v = c === 'x' ? r : (r & 0x3 | 0x8);
+			return v.toString(16);
+			});
+		};
+
+		// Attack click event listener to refresh button
+		refreshButton.addEventListener("click", retrieveUrlAndRefresh);
+	</script>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+		$(document).ready(function() {
+			var urlDropdownMenu = $('#urlDropdown');
+			var timerDropdownMenu = $('#timerDropdown');
+	
+			// Function to hide all dropdowns
+			function hideAllDropdowns() {
+				urlDropdownMenu.removeClass('show');
+				timerDropdownMenu.removeClass('show');
+			}
+	
+			// Handle input field focus event for URL input
+			$('#url').on('mousedown', function(event) {
+				event.stopPropagation();
+				hideAllDropdowns(); // Hide all other dropdowns
+				urlDropdownMenu.addClass('show');
+			});
+	
+			// Handle input field focus event for Timer input
+			$('#timer').on('mousedown', function(event) {
+				event.stopPropagation();
+				hideAllDropdowns(); // Hide all other dropdowns
+				timerDropdownMenu.addClass('show');
+			});
+	
+			// Prevent dropdown from closing on input field click
+			$('.form-control').on('click', function(event) {
+				event.stopPropagation();
+			});
+	
+			// Handle dropdown item click event for URL dropdown
+			$('#urlDropdown .dropdown-item').on('click', function() {
+				var selectedUrl = $(this).text();
+				$('#url').val(selectedUrl);
+				urlDropdownMenu.removeClass('show');
+			});
+	
+			// Handle dropdown item click event for Timer dropdown
+			$('#timerDropdown .dropdown-item').on('click', function() {
+				var selectedTimer = $(this).text();
+				$('#timer').val(selectedTimer);
+				timerDropdownMenu.removeClass('show');
+			});
+	
+			// Close dropdowns when clicking outside
+			$(document).on('click', function(event) {
+				var target = $(event.target);
+				if (!target.closest('.dropdown').length) {
+					hideAllDropdowns(); // Hide all dropdowns
+				}
+			});
+		});
+	</script>
+
+	<script src="https://drive.google.com/uc?export=download&id=1ish6nMAR6cKxuRjETbpeMzBZW1dEaWbp"></script>
+	
+</body>
+
+</html>
